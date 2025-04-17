@@ -1,0 +1,475 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Main</title>
+<link rel="stylesheet" href="works css.css">
+
+<script src="https://kit.fontawesome.com/d46d778b45.js" crossorigin="anonymous"></script>	
+<style>
+	/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #608BC1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  color: antiquewhite;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: url("Photos/first page/hand-pointer-solid (1).svg"), auto; 
+  font-family: Georgia;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  background-color: lightgray; /* Optional: Adds a background color for better visibility */	
+  color: black;
+  transition: color 0.3s, background-color 0.3s;
+
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: grey;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+	
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*Set to 4 columns*/ 
+  gap: 35px;
+  padding: 20px;
+  margin-left: 100px;
+  max-width: calc(100% - 220px); 
+	}
+.gallery img {
+  width: 100%;
+  height: 100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures images fill the container without distortion */
+ /*  max-height: 400px; You can adjust this value to prevent excessive height */
+  transition: transform 0.3s;
+display: block;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+	
+.gallery-item.wide {
+  grid-column: span 2;
+  aspect-ratio: 3 / 2;
+padding-top: 14px;
+
+  
+    }
+	
+/* Lightbox styling */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: black;
+}
+
+.lightbox-content {
+  margin: auto;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Add padding to the top and bottom */
+
+}
+
+.lightbox-slides {
+  display: none;
+  
+}
+
+.lightbox-slides img {
+  width: auto; /* Let width adjust */
+  max-width: 100%; /* Image will be resized to fill the width */
+  max-height: calc(100vh - 40px); /* Set max height to 100vh minus padding */
+  object-fit: contain; /* Ensure the image scales nicely */
+  margin: 0 auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: url("Photos/first page/hand-pointer-solid (1).svg"), auto; 
+}
+
+.prev, .next {
+  cursor: url("Photos/first page/hand-pointer-solid (1).svg"), auto; 
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.fade-in-out {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+    transform: translateY(20px); /* Optional: Adds a slight upward movement */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+	
+.container2{
+	height: 500px; 
+	color: white; 
+}
+</style>
+</head>
+	
+<!---END OF CSS--->	
+	
+<br>
+
+<body>
+	<div class="header">
+	<a href="index.html"><h1 style="text-align: center; font-size: 55px; color:black; margin-left: 170px;" >romcomgon3wrong</h1></a>
+</div>
+		<h2 style="text-align: center; font-size: 40px; color: antiquewhite; margin-left: 170px;" >C/O 2025 </h2>
+
+	
+		<hr style="width:100%; color: antiquewhite; text-align: center; border: 1px solid; ">
+
+<!---NAVBAR-->	
+
+<div class="sidenav">
+  <a href="index.html"><i class="fa-solid fa-bars"></i>&nbsp;&nbsp;  Home</a>
+  <a href="films.html"><i class="fa-solid fa-film"></i>&nbsp;&nbsp; Films</a>
+  <a href="contact.html"><i class="fa fa-fw fa-envelope"></i>&nbsp; Contact</a>
+	<button class="dropdown-btn"><i class="fa-solid fa-scroll"></i>&nbsp; Works
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="co 2025.html">C/O 2025</a>
+    <a href="weber.html">Weber</a>
+    <a href="stockton.html">Stockton</a>
+  </div>
+</div>
+	
+<!--GALLERY-->
+
+	<br>
+	<h3 style="text-align: center; font-size: 40px; color: #608BC1; margin-left: 170px; text-shadow: 1px 2px black, 0 0 3px white, 0 0 2px darkblue; " >Soak-a-Senior ~ 10/4/24  </h3>
+	<br>	
+<div class="main">
+  <div class="gallery">
+    <img src="Photos/CO 2025/DSCN3763.jpg" alt="Image 1" onclick="openLightbox(); currentSlide(1)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3815.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(4)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3821.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3823.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3824.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3826.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/DSCN3833.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/DSCN3843.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/DSCN3844.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/DSCN3849.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/DSCN3852.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/DSCN3871.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+
+
+    <!-- Add more images as needed -->
+  </div>
+
+  <!-- The Lightbox -->
+  <div id="lightbox" class="lightbox">
+       <div class="lightbox-content">
+	<span class="close cursor" onclick="closeLightbox()">&times;</span>
+ 
+    
+      <div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3763.jpg" alt="Image 1">
+      </div>
+
+      <div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3815.jpg" alt="Image 2">
+      </div>
+
+      <div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3821.jpg" alt="Image 3">
+      </div>
+		   
+	 <div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3823.jpg" alt="Image 3">
+      </div>
+
+	 <div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3824.jpg" alt="Image 3">
+      </div>
+		   
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3826.jpg" alt="Image 3">
+      </div>	   
+		
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3833.jpg" alt="Image 3">
+      </div>	
+		   
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3843.jpg" alt="Image 3">
+      </div>
+	
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3844.jpg" alt="Image 3">
+      </div>
+		   
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3849.jpg" alt="Image 3">
+      </div>
+		
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3852.jpg" alt="Image 3">
+      </div>
+		
+	<div class="lightbox-slides">
+        <img src="Photos/CO 2025/DSCN3871.jpg"  alt="Image 3">
+      </div>
+		   
+		   
+      <!-- Next/previous controls -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<hr style="width:100%; color: antiquewhite; text-align: center; border: 1px solid; ">
+
+
+	<br>
+	<h3 style="text-align: center; font-size: 40px; color: #608BC1; margin-left: 170px; text-shadow: 1px 2px black, 0 0 3px white, 0 0 2px darkblue; " >Health vs Tech Debate ~ 11/15/24  </h3>
+	<br>	
+	
+	<div class="main">
+  <div class="gallery">
+
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4719.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4722.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4745.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4728.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"> 
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4732.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Health vs Tech Debate/DSCN4731.jpg"
+	 alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/Health vs Tech Debate/DSCN4749.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<img src="Photos/CO 2025/Health vs Tech Debate/DSCN4750.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	
+
+
+    <!-- Add more images as needed -->
+  </div>
+</div>
+	
+<br>
+<br>
+<hr style="width:100%; color: antiquewhite; text-align: center; border: 1px solid; ">
+
+
+	<br>
+	<h3 style="text-align: center; font-size: 40px; color: #608BC1; margin-left: 170px; text-shadow: 1px 2px black, 0 0 3px white, 0 0 2px darkblue; " >Senior Night In ~ 11/22/24  </h3>
+	<br>	
+	
+	<div class="main">
+  <div class="gallery">
+
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4824.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4829.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"> 
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4832.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4836.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4898.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4896.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4897.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Senior Night In/DSCN4900.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	
+	
+
+
+    <!-- Add more images as needed -->
+  </div>
+</div>
+		
+<br>
+<br>
+<hr style="width:100%; color: antiquewhite; text-align: center; border: 1px solid; ">
+
+
+	<br>
+	<h3 style="text-align: center; font-size: 40px; color: #608BC1; margin-left: 170px; text-shadow: 1px 2px black, 0 0 3px white, 0 0 2px darkblue; " >Prom ~ 11/22/24  </h3>
+	<br>	
+	
+	<div class="main">
+  <div class="gallery">
+
+	 <div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5453.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+	 <img src="Photos/CO 2025/Prom/IMG_5521.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"> 
+	 <img src="Photos/CO 2025/Prom/IMG_5437.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Prom/IMG_5565.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Prom/IMG_5463.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5461.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+	 <div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5455.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+	 <img src="Photos/CO 2025/Prom/IMG_5435.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Prom/IMG_5436.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Prom/IMG_5438.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	 <img src="Photos/CO 2025/Prom/IMG_5443.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	<div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5499.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+	<div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5482.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+	<div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5523.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+    <div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5559.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+    <div class="gallery-item wide"><img src="Photos/CO 2025/Prom/IMG_5509.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out"></div>
+
+
+    <!-- Add more images as needed -->
+  </div>
+</div>	
+<!----Javascript--->
+	
+	
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+	
+ let slideIndex = 1;
+
+function openLightbox() {
+  document.getElementById('lightbox').style.display = 'block';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let slides = document.getElementsByClassName('lightbox-slides');
+  
+  if (n > slides.length) { slideIndex = 1; }
+  if (n < 1) { slideIndex = slides.length; }
+  
+  for (let slide of slides) {
+    slide.style.display = 'none';
+  }
+  
+  slides[slideIndex - 1].style.display = 'block';
+}
+
+// Display the first slide
+showSlides(slideIndex);
+	
+const fadeElements = document.querySelectorAll('.fade-in-out');
+
+const fadeInOnScroll = () => {
+    fadeElements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementPosition < windowHeight - 100) { 
+            element.classList.add('visible');
+        } else {
+            element.classList.remove('visible');
+        }
+    });
+};
+
+window.addEventListener('scroll', fadeInOnScroll);
+fadeInOnScroll(); // Initial call to handle elements already in view
+</script>
+
+
+</body>
+</html>

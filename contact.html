@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main</title>
+  <link rel="stylesheet" href="main css.css">
+  <script src="https://kit.fontawesome.com/d46d778b45.js" crossorigin="anonymous"></script>
+  <style>
+    /* General Styling */
+ 
+
+      h1 {
+      text-align: center;
+      font-size: 50px;
+      margin-top: 40px;
+	color: black;
+    }
+
+
+    /* Navigation Bar Styling */
+    .nav {
+      text-align: center;
+      margin: 20px 0;
+      font-family: 'Georgia', serif;
+    }
+
+    .nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: antiquewhite;
+      font-size: 20px;
+    }
+
+    .nav a:hover {
+      color: black;
+    }
+
+    /* Form Container Styling */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border: 1px solid #608BC1;
+      outline: none;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: #608BC1;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #506f8b;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    footer h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .social i {
+      font-size: 20px;
+      margin-right: 8px;
+    }
+
+    .social a {
+      text-decoration: none;
+      color: #333;
+      font-size: 30px; /* Increased font size */
+      margin: 0 15px;
+    }
+
+    .social a:hover {
+      color: #608BC1;
+    }
+  </style>
+</head>
+<body>
+
+ <a href="index.html">
+		
+	<h1 style="text-align: center; font-size: 55px; color:black;" >romcomgon3wrong</h1></a>
+
+  <div class="nav">
+	<a href="index.html"><i class="fa-solid fa-scroll"></i> Home</a>
+    <a href="works.html"><i class="fa-solid fa-bars"></i> Works</a>
+    <a href="films.html"><i class="fa-solid fa-film"></i> Films</a>
+    <a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <form action="action_page.php" method="post">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write something..." required></textarea>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <footer>
+ 
+    <div class="t">
+      <a href="https://www.instagram.com/rom_comgon3wrong/" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-instagram"></i> @rom_comgon3wrong&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </a>
+      <a href="https://www.youtube.com/@romcomgon3wrong" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-youtube"></i> @romcomgon3wrong
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>

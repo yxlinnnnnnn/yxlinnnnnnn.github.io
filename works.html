@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Main</title>
+<link rel="stylesheet" href="works css.css">
+<script src="main js.js"></script>
+<script src="https://kit.fontawesome.com/d46d778b45.js" crossorigin="anonymous"></script>	
+<style>
+	/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #608BC1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 23px;
+  color: antiquewhite;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: url("Photos/first page/hand-pointer-solid (1).svg"), auto; 
+  font-family: Georgia;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: grey;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /*Set to 4 columns*/ 
+  gap: 25px;
+  padding: 20px;
+  margin-left: 100px;
+  max-width: calc(100% - 220px); 
+	}
+.gallery img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures images fill the container without distortion */
+ /*  max-height: 400px; You can adjust this value to prevent excessive height */
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+	
+.container2 {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container2:hover .image {
+  opacity: 0.3;
+}
+
+.container2:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #04AA6D;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+</style>
+</head>
+	
+<br>
+
+<body>
+	<div class="header">
+	<a href="index.html">
+		
+	<h1 style="text-align: center; font-size: 55px; color:black; margin-left: 170px;" >romcomgon3wrong</h1></a>
+
+	
+</div>
+ 
+	<hr style="width:100%; color: antiquewhite; text-align: center; border: 1px solid; ">
+	<br>
+<div class="container">
+	
+			<p style="text-align: center; font-size: 20px; padding-right: 0px;">This is the <a href="works.html">Works</a> page, I have a numerous of dates and events here. You can navigate the categories in the side bar for, <a href="co 2025.html">C/O 2025</a> activities, <a href="weber.html">Weber</a> events, and locations throughout <a href="stockton.html">Stockton.</a></p>
+			</div>
+	<br>
+	<br>
+	
+	<div class="main">
+  <div class="gallery">	 
+	<img src="Photos/works page/DSCN3852.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(4)" class="fade-in-out">
+    <img src="Photos/works page/IMG_5246-2.jpg" alt="Image 1" onclick="openLightbox(); currentSlide(1)" class="fade-in-out">
+    <img src="Photos/works page/DSCN3927-3.jpg" alt="Image 3" onclick="openLightbox(); currentSlide(5)" class="fade-in-out">
+	  
+
+    <!-- Add more images as needed -->
+  </div>
+	</div>		
+<div class="sidenav">
+  <a href="index.html"><i class="fa-solid fa-bars"></i>&nbsp;&nbsp;  Home</a>
+  <a href="films.html"><i class="fa-solid fa-film"></i>&nbsp;&nbsp; Films</a>
+  <a href="contact.html"><i class="fa fa-fw fa-envelope"></i>&nbsp; Contact</a>
+	<button class="dropdown-btn"><i class="fa-solid fa-scroll"></i>&nbsp; Works
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="co 2025.html">C/O 2025</a>
+    <a href="weber.html">Weber</a>
+    <a href="#">Stockton</a>
+  </div>
+</div>
+	
+	
+	
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+    } else {
+      dropdownContent.style.display = "block";
+    }
+  });
+}
+</script>
+	
+	
+	
+	
+</body>
+</html>
